@@ -1,0 +1,586 @@
+section.Course {
+    display: flex;
+    width: 66%;
+    flex-direction: column;
+    align-items: center;
+    font-family: Nunito;
+    height: 100vh;
+    flex: 1;
+    overflow-y: auto;
+    position: relative;
+   
+    .SearchBar {
+
+        // border-bottom: 2px solid #DFE5F1;
+
+        width: 90%;
+        padding-top: 20px;
+        padding-left: 30px;
+
+        color: #211C37;
+        align-self: flex-start;
+        z-index: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: #FFF;
+
+        p {
+            color: #85878D;
+        }
+
+        .Search {
+            border: 1.5px solid #E7EAE9;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            height: 10px;
+
+            margin-left: auto;
+            justify-self: flex-end;
+
+            .Card {
+
+                display: none;
+                margin-top: 0px;
+                background-color: white;
+                z-index: 0;
+                width: calc(100% + 30px);
+
+                min-height: 200px;
+
+                text-align: center;
+                overflow: auto;
+
+                &#opened {
+                    display: block;
+                    border: 1.5px solid #E7EAE9;
+                    border-top: none;
+                    border-radius: 0px 0px 10px 10px;
+
+                }
+
+                a {
+                    text-decoration: none;
+                    color: black;
+                    font-size: 13px;
+                }
+
+                div {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 10px;
+                    margin-top: 0px;
+                    transition: 0.2s;
+                    padding: 5px;
+                    &:hover {
+                        background-color: rgba(0, 0, 0, 0.05);
+                    }
+
+                    .Text {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0px;
+                        align-items: flex-start;
+                        justify-content: center;
+
+                        h3 {
+                            color: #6E7781;
+                            font-family: "Gilroy-Medium";
+                            font-size: 13px;
+                            font-weight: 500;
+                        }
+
+                        &:hover {
+                            background-color: rgba(0, 0, 0, 0.0);
+
+                        }
+                    }
+                }
+
+                img {
+                    border-radius: 10px;
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+
+            input {
+                border: none;
+                outline: none;
+
+
+            }
+
+        }
+
+        .Helper {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        button {
+            background-color: rgba(0, 0, 0, 0.0);
+            border: none;
+
+            border-radius: 10px;
+            cursor: pointer;
+
+            &.close {
+                &:hover {
+                    svg {
+                        color: red;
+                    }
+                }
+            }
+
+            svg {
+                color: black;
+
+
+            }
+        }
+        .Helper2 {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+        }
+        .Notifi {
+            background-color: white;
+            width: 200px;
+            height: 100px;
+            position: absolute;
+            top: 70px;
+            border: 1.5px solid #E7EAE9;
+            border-radius: 10px;
+            transform: translateX(45px);
+            display: none;
+            transition: 0.4s;
+            &#opened {
+                display: block;
+            }
+        }
+
+
+    }   
+    
+    .CourseHead {
+        align-items: center;
+        display: flex;
+        width: 90%;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 40px 0px;
+        gap: 15px;
+        margin-top: 50px;
+        .CourseInfo {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+        }
+        img {
+            width: 110px;
+            height: 70px;
+            border-radius: 100px;
+        }
+        h1 {
+            align-self: center;
+            margin-right: auto;
+            justify-self: start;
+        }
+        button {
+            border-radius: 20px;
+            border: 0px;
+            padding: 10px 20px;
+            margin-right: 10px;
+            color: white;
+            align-items: center;
+            background-color: #211E61;
+            font-family: inherit;
+            transition: 0.3s;  
+            cursor: pointer;
+            &:hover {
+                background-color: #a9bbff;
+            }
+        }
+    }
+    .FilterOptions {
+        width: 90%;
+        height: 30px;
+        border-radius: 20px;
+        min-height: 30px;
+        background-color: #EFEFF3;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        font-family: Nunito;
+        div {
+            padding: 0px 20px;
+            border-radius: 10px;
+          
+            cursor: pointer;
+            transition: 0.3s;
+            &:hover {
+                background-color: #FFF;
+
+            }
+            &.clicked {
+                background-color: #FFF;
+            }
+        }
+        
+    }
+    .Ishod {
+        width: 90%;
+        margin-top: 20px;
+        transition: 1s;
+        #files  {
+            display: none;
+            width: 100%;
+            height: 100px;
+            flex: 1;
+           margin-top: 30px;
+         
+            ul li {
+                list-style: none;
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                margin-top: 10px;
+                align-items: center;
+                gap: 15px;
+               
+                    img {
+                        width: 50px;
+                        transform: rotate(0deg);
+                    }
+                    svg {
+                        width: 30px;
+                        height: 30px;
+                        font-size: 1.1rem;
+                    }
+                    .delete {
+                        svg {
+                            font-size: 1.1rem;
+                        }
+                    }
+                
+            } 
+            /*button {
+                background-color: #211E61;
+                border: none;
+                width: 100%;
+                color: white;
+                border-radius: 10px;
+                padding: 5px;
+                cursor: pointer;
+            }*/
+            .dargDrop {
+                width: 100%;
+                height: 100px;
+                margin-top: 20px;
+                border-spacing: 25px;
+                border-radius: 14px;
+                form {
+                    margin-top: 70px;
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    align-items: center;
+                    .sc-aXZVg {
+                        position: absolute;
+                        height: 70px;
+                        span {
+                            display: none;
+                        }
+                        svg {
+                            display: none;
+                            width: 100%;
+                            
+                        }
+                    }
+                    
+                }
+               
+                img {
+                        
+                    width: 100px;
+                }
+                p{
+                    color: rgba(0, 0, 0, 0.49);
+        
+                }   
+            }
+            &.opened {
+              display: block;
+            } 
+          }
+          
+        div.lesson {
+            display: flex;
+            margin-top: 15px;
+            flex-direction: column;
+            border: 2px solid #DFE5F1;
+            padding: 10px;
+            padding-right: 30px;
+            border-radius: 20px;
+            &#hidden {
+                span {
+                    background-color: gray
+                }
+            }
+            transition: 0.2s;
+            &:hover {
+            border: 2px solid #211E61;
+                //transform: scale(1.02);
+            }
+            #PredajDomaci {
+                background-color: #211E61;
+                width: 100%;
+                border-radius: 10px;
+                color: white;
+                border: none;
+                padding: 5px;
+                cursor: pointer;
+            }
+            &#end {
+                border-color: #a70000;
+                span {
+                    background-color: #a70000;
+                }
+            }
+            .Info {
+                display: flex;
+                width: 100%;
+                flex-direction: row;
+                align-items: center;
+                gap: 15px;
+                transition: 1s;
+                cursor: pointer;
+                p {
+                    font-size: 14px;
+                }
+                
+            }
+           
+            &#opened {
+                align-items: flex-start;
+                height: 300px;
+                transition: 1s;
+              
+            }
+            
+            .Text {
+                
+                display: block;
+                border: none;
+                
+            }
+            span {
+                border-radius: 20px;
+                padding: 5px 20px;
+                
+                background-color: #211E61;
+
+            }
+            a,svg, .LeftArrow, .Actions {
+                margin-left: auto;
+                justify-self: start;
+            
+            }
+            .Actions {
+                button {
+                    border: none;
+                    background-color: rgba(0, 0, 0, 0);
+                    cursor: pointer;
+                    text-align: center;
+                    align-items: center;
+                    font-size: 14px;
+                    margin-right: 10px;
+                    #PredajDomaci {
+                        background-color: #211E61;
+                        width: 100%;
+                    }
+                }
+                svg {
+                    font-size: 1.1rem;
+                    width: 30px;
+                    &.Dots {
+                    font-size: 1.5rem;
+                    padding: 10px 0px;
+
+                    }
+                }
+            } 
+            img {  
+                transform: rotate(90deg);
+                
+                transition: 0.3s;
+                &#opened {
+                    transform: rotate(270deg);
+                }
+            }
+        }
+    }
+    .NoLes {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: gray;
+        flex-direction: column;
+        text-align: center;
+        h1 {
+            font-size: 19px;
+          
+        }
+     
+    }
+}
+
+
+
+.Image {
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7);
+    img {
+        width: 400px;
+    }
+    button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        color: white;
+        cursor: pointer;
+        &:hover {
+            svg {
+                color: red;
+            }
+        }
+    }
+    &#opened {
+        display: flex;
+    }
+   
+}
+
+@media only screen and (max-width:768px){
+    #root {
+        justify-content: center;
+
+    }
+
+   
+    section.Course {
+        .SearchBar {
+            width: 75%;
+            margin-top: 40px;
+            align-self: center;
+            position: unset;
+            background-color: #E3E3E3;
+            border-bottom: 0px;
+            border-radius: 20px;
+            padding: 10px;
+            z-index: 0;
+            input {
+             background-color: #E3E3E3;
+            }
+         }
+        .FilterOptions {
+            background-color: #fff;
+              div {
+               
+                  background-color: #fff;
+                  border: 1px solid #DFE5F1;
+                  &:hover {
+                      background-color: #FFF;
+                        
+                  }
+                  &.clicked {
+                      background-color: #211E61;
+                  border: 1px solid #211E61;
+                    color:#fff;
+                  }
+              }
+              
+          }
+          .CourseHead {
+            margin-top: 0px;
+            flex-direction: column;
+            align-items: flex-start;
+            .CourseBtn {
+                text-align: center;
+                display: flex;
+                align-items: center;
+                width: 100%;
+                justify-content: space-evenly;
+            }
+                button {
+                   
+                 padding: 4px 10px;
+
+                }
+                img {
+                    width: 70px;
+                    height: 70px;
+                    border-radius: 69px;
+                }
+          }
+          .Ishod {
+            div.lesson {
+                .Info {
+                    span {
+                        padding: 5px 10px;
+                        svg {
+                            width: 50px;
+                        }
+                    }
+                }
+                #files {
+                    ul {
+                        li {
+                            img {
+                                width: 40px;
+                            }
+                        }
+                    }
+                    
+                }
+              }
+          }
+          
+    }
+        
+          
+    
+    
+
+
+
+    section.Course {
+        width: 100vw;
+        padding-top: 30px;
+     
+        
+    }
+    nav {
+        display: none;
+    }
+
+}

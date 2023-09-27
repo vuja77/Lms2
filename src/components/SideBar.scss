@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&family=Poppins:ital,wght@0,600;0,400;0,700;0,800;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+
+.SideBar {
+    display: flex;
+    width: 280px;
+    padding: 30px;
+    padding-top: 20px;
+    font-family: 'Gilroy-Medium', sans-serif;
+    border-left: 2px solid #F3F5F7;
+    flex-direction: column;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+   // box-shadow: -8px 0px 80px 0px rgba(0, 0, 0, 0.05);
+    z-index: 11;
+    gap: 20px;
+    align-items: center;
+    hr {
+        width: 100%;
+        background-color: #EFEFF3;
+        height: 1.5px;
+        border: none;
+    }
+    header {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        button {
+             border: 1.5px solid #E7EAE9;
+            background-color: rgba(255, 255, 255, 0);
+            padding: 8px 8px 10px 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    .Profile {
+        margin-top: 30px;
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: 'Gilroy-Bold', sans-serif;
+        img {
+            width: 100px;
+        }
+        text-decoration: none;
+        color: initial;
+        
+        
+    }   
+    a {
+        text-decoration: none;
+        color: initial;
+       
+    }
+    .calendar {
+        background-color: #F8F8F8;
+   
+        width: 100%;
+        border-radius: 20PX;
+        padding: 10px;
+        min-height: 80px;
+        text-align: center;
+        p {
+            color: #676767;
+            font-size: 12px;
+        }
+        .Helper {
+            margin-top: 10px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            overflow: auto;
+
+        }
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            padding: 5px 2px 5px 2px;
+            justify-content: space-between;
+            span {
+                aspect-ratio: 1 / 1;
+                text-align: center;
+                font-size: 12px;
+                width: 15px;
+                
+            }
+
+        }
+        div.today {
+             color: white;
+             border-radius: 20px;
+             padding: 5px;
+            background-color: black;
+            span {
+                background-color: #FF9053;
+                color: black;
+            }
+        }
+        span {
+            background-color: white;
+            border-radius: 100%;
+            padding: 5px;
+        }
+    }
+    .UserLabel {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+
+        h4 {
+            margin-right: 10px;
+            font-family: Nunito;
+
+        }
+    }
+
+    .MuiDateCalendar-root {
+        width: 100%;
+
+    }
+
+    .UpcomingExam {
+        width: 100%;
+        font-family: 'Gilroy-Medium', sans-serif;
+
+
+
+        div.ExamNotfi {
+            width: 100%;
+            height: 50px;
+            border-radius: 10px;
+            background: white;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+            padding: 10px 0px 10px 10px;
+            border: 1.5px solid #E7EAE9;
+            gap: 15px;
+            align-items: center;
+            &.Text {
+                background-color: unset;
+                flex-direction: column;
+
+                p {
+                    font-size: 10px;
+                }
+            }
+
+            img {
+                width: 45px;
+                border-radius: 10px;
+            }
+        }
+    }
+
+    .About {
+        p {
+            margin-top: 10px;
+            margin-left: 10px;
+            font-size: 14px;
+        }
+    }
+
+    .Professor {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start; 
+        gap: 5px;
+        a {
+            text-decoration: none;
+            color: initial;
+        } 
+        div {
+            display: flex;
+            flex-direction: row;
+             gap: 10px;
+            align-items: center;
+        }
+        img {
+            border-radius: 100%;
+        }
+
+    }
+
+    .Count {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+
+        div {
+            text-align: center;
+            border-radius: 10px;
+            width: 80px;
+            background-color: #EFEFF3;
+            padding: 20px;
+        }
+    }
+
+    .Skills {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        min-width: 100%;
+        .helper {
+            display: flex;
+            flex-direction: row;
+        gap: 10px;
+        flex-wrap: wrap;
+
+        }
+        div.skill {
+            text-align: center;
+            
+            background-color: white;
+            border: 2px solid #EFEFF3;
+            cursor: pointer;
+            flex: 1 1 100px;
+         
+            border-radius: 10px;
+            padding: 5px;
+            transition: 0.5s;
+            &:hover {
+                border-color: #211E61;
+                color: white;
+                background-color: #211E61;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:1024px) {
+    .SideBar {
+        display: none;
+    }
+}

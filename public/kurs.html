@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <iframe id="ifr" src="" frameborder="0"></iframe>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        iframe {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+
+
+    <script>
+        /*
+      'CommitData',
+      'ConcedeControl', // Gives control back to the LMS
+      'CreateResponseIdentifier', // Create question response
+      'Finish',
+      'GetDataChunk',  // Retrieve stringified object with lesson progress
+      'GetStatus', // Get Current Status
+      'MatchingResponse', // Interaction - Question Type
+      'RecordFillInInteraction', // Interaction - Question Type
+      'RecordMatchingInteraction', // Interaction - Question Type
+      'RecordMultipleChoiceInteraction', // Interaction - Question Type
+      'ResetStatus', // Reset the Status
+      'SetBookmark',   // Set identifier for bookmark
+      'SetDataChunk',  // Set a stringified object with lesson progress
+      'SetFailed', // Tell LMS user Failed course
+      'SetPassed', // Tell LMS user Passed the course
+      'SetReachedEnd', // Tell LMS user completed course
+      'SetScore', // Report Users Score to the LMS (for Pass and fail)
+      'WriteToDebug',
+        */
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const scormFilename = urlParams.get('scorm_filename');
+        const token = urlParams.get('token');
+
+        let iframe = document.querySelector("iframe");
+        
+        iframe.setAttribute("src", "../storage/courses/"+ scormFilename +"/scormcontent/index.html");
+
+
+        let setup = async () => {
+            window.SetDataChunk = (a) => {
+                let b = JSON.parse(a).d;
+
+                fetch("../api/set-value", {
+                    method: "POST",
+                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                    body: JSON.stringify({
+                        scorm_filename: scormFilename,
+                        data: JSON.parse(a).d
+                    }),
+                })
+                    .then((response, error) => {
+                        console.log(response);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    })
+            };
+
+
+            window.GetDataChunk = () => {
+                let result = null;
+
+                const xhttp = new XMLHttpRequest();
+                xhttp.onload = function () {
+                    let data = JSON.parse(this.responseText)
+                    result = JSON.stringify({ d: data[0].data })
+                }
+                xhttp.open("GET", "../api/get-value/" + scormFilename, false);
+                xhttp.setRequestHeader("Authorization", `Bearer ${token}`)
+                xhttp.send();
+
+                return result
+            };
+
+
+            window.ConcedeControl = window.history.back;
+
+
+            console.log(document.getElementById("ifr").contentDocument.title);
+
+        }
+
+
+
+        setup();
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,225 @@
+section.CenterSection {
+    display: flex;
+    flex-direction: column;
+    width: 66%;
+
+    align-items: center;
+    overflow-y: scroll;
+    position: relative;
+    height: 100vh;
+
+
+    .MobHeader, .MoblieNav {
+        display: none;
+    }
+   /* h1 {
+        align-self: flex-start;
+        margin-left: 60px;
+        color: #141736;
+        font-family: Nunito;
+        font-size: 32px;
+    }*/
+   /* .SearchBar {
+        width: 90%;
+        border-bottom: 2px solid #DFE5F1;
+        padding: 25px;
+        align-self: flex-start;
+  
+        color: #C8D0DF;
+        input {
+            border: none;
+            outline:none;
+            margin-left: 20px;
+        }
+      
+    }
+    */
+    .Reminders {
+      //  padding: 50px;
+        
+        div.TestAdd,  div.LessonAdd, div.HomeworkReminder{
+         
+            display: flex;
+            flex-direction: row;
+            height: 100px;
+            align-items: center;
+            gap: 20px;
+            border-radius: 20px;
+            border: 0px solid #211E61;
+            background: #211E61;
+            padding-left: 20px;
+            padding-right: 20px;
+            color: white;
+            &.LessonAdd {
+                color: black;
+                border: 2px solid #E3E3E3;
+                background: #FFF;
+                cursor: pointer;
+                transition: 0.3s;
+                &:hover {
+                     border: 2px solid #211E61;
+
+                }
+                div:nth-child(1) {
+                    align-self: flex-end;
+                }
+                img {
+                    width: 100px;
+                }
+                p {
+                    font-weight: 500;
+                    color: #60676D;
+                }
+                button {
+                    all: unset;
+                    border-radius: 20px;
+                    background-color: #211E61;
+                    font-size: 10px;
+                    padding: 5px 15px;
+                    color: white;
+                }
+            }
+            h2 {
+                font-size:20px;
+                white-space: nowrap;
+            }
+           
+            img {
+                width: 70px;
+            }
+          
+        }
+        
+    }
+    select {
+        
+        padding: 5px 45px 5px 15px;
+        width: 200px;
+        border-radius: 10px;
+border: 1px solid #DFE5F1;
+background: #FAFAFC;
+height: 30px;
+    }
+    .Classes {
+       
+        width: 89%;
+        border-radius: 30px;
+        height: 60vh;
+        .brake {
+            height: 150px;
+        }
+        a {
+            text-decoration: none;
+            color: initial;
+            flex: 5 5 200px;
+           
+        div.cls {
+      
+
+            border-radius: 30px;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            background-color: #fff;
+            padding: 10px 25px;
+            transition: 0.3s;
+          //  box-shadow: 0px 9px 52px 0px rgba(0, 0, 0, 0.05);
+            border: 2px solid #DFE5F1;
+           img {
+                justify-self: flex-end;
+            }
+            div.Text {
+            border:0px solid #DFE5F1;
+
+                display: flex;
+                flex-direction: column;
+               margin-top: unset;
+                h1 {
+                    margin-left: 0px;
+                }
+            }
+            &:hover {
+              
+                border:2px solid #211E61;
+
+             
+                transform: scale(0.99);
+            
+            }
+        }
+    }
+    }
+}
+
+
+
+
+@media only screen and (max-width:768px){
+    #root {
+        justify-content: center;
+
+    }
+    section.CenterSection {
+        width: 100vw;
+        padding-top: 30px;
+      
+        .MobHeader {
+   
+        position: fixed;
+        top: 0px;
+        width: 100%;
+        height: 60px;
+        background-color: #FFF;
+        display: flex;
+        align-items: center;
+
+        padding-left: 30px;
+        box-shadow: -8px 0px 80px 0px rgba(0, 0, 0, 0.09);
+      
+        
+        justify-content: space-between;
+        img {
+            width: 40px;
+        }
+        svg {
+            margin-right: 50px;
+            height: 1.5em;
+        }
+    }
+    .Reminders {
+        //  padding: 50px;
+          
+          div.TestAdd,  div.LessonAdd, div.HomeworkReminder{
+            height: 80px;
+            min-width: 250px;
+            img {
+                width: 50px;
+            }
+          }
+        }
+    }
+    nav {
+        display: none;
+    }
+    
+}
+.MuiBox-root {
+    margin-top: 10px;
+    .MuiLinearProgress-colorPrimary {
+        border-radius: 50px;
+        height: 5px;
+        background-color: #D9D9D9;
+    }
+    .css-5xe99f-MuiLinearProgress-bar1 {
+        background-color: #211E61;
+        border-radius: 50px;
+
+    }
+}
+
+::-webkit-scrollbar {
+    width: 1px;
+  }
